@@ -3,28 +3,25 @@ const { Schema } = mongoose;
 
 // const passportLocalMongoose = require("passport-local-mongoose");
 
-const userSchema = new Schema({
-  email: {
+const postSchema = new Schema({
+  title: {
     type: String,
   },
-  password: {
+  description: {
+    type: String,
+  },
+  image: {
+    type: String,
+  },
+  Author: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+    required: true,
+  },
+  likes: {
     type: Number,
   },
-  username: {
-    type: String,
-  },
-  role: {
-    type: String,
-    default: "User",
-  },
-  posts: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Post",
-      required: true,
-    },
-  ],
 });
 
-const User = mongoose.model("User", userSchema);
-module.exports = User;
+const Post = mongoose.model("Post", postSchema);
+module.exports = Post;
