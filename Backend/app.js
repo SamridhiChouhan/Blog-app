@@ -13,8 +13,20 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json()); // for JSON
 app.use(express.urlencoded({ extended: true })); // for form data
 
+// const dbUrl = process.env.MONGO_ATLAS;
+const dbUrl = "mongodb://127.0.0.1:27017/Blog";
+async function main() {
+  await mongoose.connect(dbUrl);
+}
+
+main()
+  .then((res) => {
+    console.log(res, "connection successfull");
+  })
+  .catch((err) => console.log(err));
+
 app.get("/", (req, res) => {
-  res.render("index");
+  // res.render("index");
 });
 
 app.listen(port, () => {
