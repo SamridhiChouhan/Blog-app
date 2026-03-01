@@ -3,6 +3,7 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import { useEffect } from "react";
+import Dashboard from "./Dashboard";
 
 function App() {
   const [allPost, setallPost] = useState([]);
@@ -15,14 +16,14 @@ function App() {
       .then((data) => {
         setallPost(data);
       });
-    console.log(result);
+    // console.log(result);
   }, []);
 
-  console.log(allPost);
+  // console.log(allPost);
 
   return (
     <>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
+      <Dashboard allPost={allPost} />
     </>
   );
 }
