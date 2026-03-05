@@ -1,6 +1,5 @@
-// import Header from "./includes/Header";
-import HeroSection from "./main/HeroSection";
-import PostSection from "./main/PostSection";
+import HeroSection from "../components/HeroSection";
+import PostSection from "../components/PostSection";
 
 function Dashboard(props) {
   const allPost = props.allPost;
@@ -8,7 +7,6 @@ function Dashboard(props) {
   return (
     <>
       <div className="Dashboard flex flex-col w-full items-center ">
-        {/* <Header /> */}
         <HeroSection />
         <PostSection allPost={allPost} filtering={filtering} />
       </div>

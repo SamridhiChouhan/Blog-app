@@ -36,8 +36,8 @@ app.get("/", async (req, res) => {
 });
 
 app.get("/show/:id", async (req, res) => {
-  let id = req.params.id;
-  let filtered = await Post.find({ _id: id });
+  let { id } = req.params;
+  let filtered = await Post.findById(id);
   console.log(filtered);
   res.json(filtered);
 });

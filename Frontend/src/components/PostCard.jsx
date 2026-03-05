@@ -1,7 +1,6 @@
 import { Link } from "react-router";
 
 function PostCard(props) {
-  // console.log(props.postData);
   const post = props.postData;
   const filtering = props.filtering;
 
