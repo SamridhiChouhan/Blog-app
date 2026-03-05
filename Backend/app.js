@@ -35,6 +35,13 @@ app.get("/", async (req, res) => {
   res.json(posts);
 });
 
+app.get("/show/:id", async (req, res) => {
+  let id = req.params.id;
+  let filtered = await Post.find({ _id: id });
+  console.log(filtered);
+  res.json(filtered);
+});
+
 app.listen(port, () => {
   console.log(`app is listening on port ${port}`);
 });
